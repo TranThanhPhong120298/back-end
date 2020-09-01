@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="http://localhost:5000" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sach</title>
+    <style>
+      #ThongTinList {
+        text-align: center;
+      }
+      .charactor img {
+        width: 10vw;
+        height: 20vh;
+        border-radius: 50%;
+      }
+      .charactor {
+        margin-bottom: 20px;
+      }
+      .charactor div {
+        display: block;
+        background-color: white;
+        color: #000;
+      }
+      .charactor a {
+        display: block;
+        width: 45%;
+        float: left;
+        background-color: yellow;
+        color: red;
+        padding: 3px;
+      }
+      .charactor a:hover {
+        background-color: blue;
+      }
+      #ThongTinList button{
+        display: inline-block;
+        background-color:white;
+        border-radius: 10px;
+        border: 4px double blue;
+        color: black;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 300px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ThongTinList">
+      <button>
+        <a href="./add">Add New Item</a>
+      </button>
+      <br />
+      <h2>Danh sách thông tin người dùng</h2>
+      <br />
+      <% danhsach.forEach(function(ThongTin){ %>
+      <div class="charactor">
+        <img src="./upload/<%- ThongTin.Image %>" alt="" />
+        <div class="ThongTinName"><p>Tên: <%- ThongTin.Name %></p></div>
+        <div class="ThongTinNote"><p>Thông tin: <%- ThongTin.Note %></p></div>
+        <div class="ThongTinNumber"><p>SĐT: <%- ThongTin.Number %></p></div>
+        <br />
+        <div class="button">
+          <a href="./edit/<%- ThongTin._id %>">Edit</a>
+          <a
+            onclick="return confirm('Are you sure you want to delete <%- ThongTin.Name %>?')"
+            href="./delete/<%- ThongTin._id %>"
+            >Delete</a
+          >
+        </div>
+        <br />
+      </div>
+      <% }); %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="http://localhost:5000" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit new</title>
+    <style>
+      input {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Edit item</h2>
+    <form action="./edit" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="IDThongTin" value="<%- thongtin._id%>" />
+      <input
+        type="text"
+        value="<%- thongtin.Name %>"
+        name="txtName"
+        placeholder="Name"
+      />
+      <br />
+      <img src="upload/<%- thongtin.Image %>" width="100" />
+      <input type="file" name="Image" /><br />
+      <input
+        type="text"
+        value="<%- thongtin.Note %>"
+        name="txtNote"
+        placeholder="Note"
+      /><br />
+      <input
+        type="text"
+        value="<%- thongtin.Number %>"
+        name="txtNumber"
+        placeholder="Number"
+      /><br />
+      <input type="submit" value="Edit" />
+    </form>
+  </body>
+</html>
